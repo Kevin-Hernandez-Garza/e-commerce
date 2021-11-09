@@ -4,21 +4,33 @@ const Category = require('./Category');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
+
+
+/*/////////////////////////////////////
+         CREATING ASSOCIATIONS
+/////////////////////////////////////*/
+
 // Products belongsTo Category
 Product.belongsTo(Category, {
-
-})
+  foreignKey: 'category_id',
+  // category_name
+});
 // Categories have many Products
 Category.hasMany(Product, {
-
+  foreignKey: 'category_id',
+  //category_name
 })
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
-
+  through: ProductTag,
+  as: 'products_tag',
+  foreignKey: 'product_id'
 })
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
-
+  through: ProductTag,
+  as: 'tags_product',
+  foreignKey: 'tag_id'
 })
 
 
