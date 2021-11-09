@@ -4,7 +4,7 @@
 
 #### License Link 🎫
 
-- [License](license)
+- [License](LICENSE)
 
 #### Badge 🏆
 
